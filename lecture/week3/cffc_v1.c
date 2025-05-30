@@ -1,3 +1,18 @@
+/*
+ * Filename: cffc_v1.c - version 1
+ *
+ * Description: Ask the user for the conversion type: C -> F or F -> C
+ *              Ask the user for a temperature.
+ *              Convert this temperature to the other temperature 
+ *              based on the selected conversion type.
+ *              C -> F conversion: °F = (°C × 9/5) + 32
+ *              F -> C conversion: °C = 5/9 × (°F - 32)
+ *
+ * Author: Justine Abucay
+ * Date: May 30, 2025
+ */
+
+
 #include <stdio.h>
 
 int main(void)

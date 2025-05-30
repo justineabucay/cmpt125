@@ -1,3 +1,16 @@
+/*
+ * Filename: KCKF.c
+ *
+ * Description: Ask the user for the conversion type: Kelvin -> Celsius or Kelvin -> Fahrenheit
+ *              Ask the user for a temperature.
+ *              Make sure the temperature is valid (no < 0.0 K)
+ *              Convert this temperature to the other temperature 
+ *              based on the selected conversion type.
+ *
+ * Author: Justine Abucay
+ * Date: May 30, 2025
+ */
+
 #include <stdio.h>
 
 int main(void)
