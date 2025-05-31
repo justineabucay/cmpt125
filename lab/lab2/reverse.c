@@ -22,6 +22,10 @@ int main(void)
        printf("%d ", arr[i]);
     }
 
+    /*
+        https://www.geeksforgeeks.org/program-for-array-rotation-continued-reversal-algorithm/
+    */
+
     printf("\nContent of array after reversing: ");
     for(int i = 0; i < count/2; i++)
     {
@@ -33,9 +37,6 @@ int main(void)
     for(int i = 0; i < count; i++){
         printf("%d ", arr[i]);
     }
-
-
-
 
     return 0;
 }
