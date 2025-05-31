@@ -36,8 +36,6 @@ int main(void)
         minNum = arr[0];
         maxNum = arr[0];
     
-
-
         // finding max, min + the sum of the elements inside array 
         for(int i = 0; i < arr_length; i++)
         {
