@@ -1,0 +1,3 @@
+the difference the version one and version two of this example is that version one calls the functions after the function definitions with the main() on the bottom of the program. on the hand, version two declares the functions on the top of the program uncompleted -- that is, function declarations. 
+
+either of the two methods work fine as long as the function call is after the function declaration/definition. the reason is that the complier must know how many arguments the functions take and what datatype these arguments take to validate it. 
