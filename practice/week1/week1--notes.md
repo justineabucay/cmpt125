@@ -8,11 +8,15 @@
 - assignment statment sets the variables to their initial values.
 - proper indentation is important -- it could determine the logical structure of your program. also, it makes your code easy to read. 
 - the function printf expects a declaration of a type name like '%d' for integers in its first argument. the syntax is as follows:
+
         printf(format string [, input list']); 
+
 where format string specifies the text to output, which includes a character string and format specifier that usually begins with %. the format specifier are to be replaced by text representing the values of the second argument
 
 **variable declaration:** 
+
         data_type variable_name = initialization value;
+
 where the data type dictates the amt of memory assigned to the variable, the kind of value that can be stored and the range of possible values that can be stored in this variable<br>
 the value of a variable can change but its data type cannot
 
