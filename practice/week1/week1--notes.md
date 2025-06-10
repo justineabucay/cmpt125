@@ -1,4 +1,4 @@
-
+#general notes from week 1
 - all variables must be declared before they can be executed
     - a declaration consists of a type name and the variable
 
@@ -17,3 +17,5 @@
         %f 6f floating point, at least 6 characters wide
         %.2f floating point, 2 characters after decimal point
         %6.2f floating point, at least 6 wide and 2 after decimal point
+
+----
