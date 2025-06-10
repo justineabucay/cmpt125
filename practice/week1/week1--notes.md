@@ -10,9 +10,10 @@
 - the function printf expects a declaration of a type name like '%d' for integers 
 
 **width specification in printf**
-        %d decimal integer<br>
-        %6d decimal integer, at least 6 characters wide<br>
-        %f floating point<br>
-        %f 6f floating point, at least 6 characters wide<br>
-        %.2f floating point, 2 characters after decimal point<br>
+
+        %d decimal integer
+        %6d decimal integer, at least 6 characters wide
+        %f floating point
+        %f 6f floating point, at least 6 characters wide
+        %.2f floating point, 2 characters after decimal point
         %6.2f floating point, at least 6 wide and 2 after decimal point
