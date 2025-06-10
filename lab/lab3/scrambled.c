@@ -2,7 +2,7 @@
 filename: scrambled.c
 description: write a function that returns 1 if arr1 and 2 contain the same values or 0 otherwise
 date: june 9, 2025
-author: justine abucay 30150426
+author: Justine Abucay 301540624
 */
 
 #include <stdio.h>
