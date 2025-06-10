@@ -12,7 +12,7 @@
 where format string specifies the text to output, which includes a character string and format specifier that usually begins with %. the format specifier are to be replaced by text representing the values of the second argument
 
 **function call:** 
-- arguments: ==the values are passed to a function when we call the function==, which are usually placed within the ()
+- arguments: <mark>the values are passed to a function when we call the function<mark>, which are usually placed within the ()
 
 **width specification in printf**
 
