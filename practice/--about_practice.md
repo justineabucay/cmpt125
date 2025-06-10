@@ -1,0 +1,1 @@
+this directory is mainly my notes from the weekly readings, as well as practice exercises from those readings. 
