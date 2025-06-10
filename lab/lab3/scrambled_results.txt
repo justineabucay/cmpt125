@@ -1,0 +1,12 @@
+test case #1
+arr1 = {1, 1}, arr2 = {1, 2} have different values and therefore, not identical.
+
+test case #2
+arr1 = {24, 0, 1}, arr2 = {0, 24, 1} have the same values and therefore, are identical.
+
+test case #3
+arr1 = {1, 2, 3}, arr2 = {1, 2} have different sizes and therefore, not identical.
+
+test case #4
+arr1 = {}, arr2 = {} have the same values and therefore, are identical.
+
