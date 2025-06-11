@@ -40,3 +40,6 @@ description: using the math functions, like ceil, round + floor
 when writing the command to compile your program using the math functions:
 
         gcc values.c -o values -lm
+
+## patterns found in the lecture demos
+
