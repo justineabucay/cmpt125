@@ -123,3 +123,66 @@ to know the size of an array:
 
 **question 6**
 - the array name is a constant, not a pointer, because a pointer is a variable that we can modify. an array, on the other hand, has a fixed memory block.
+
+
+---
+
+## pointers + strings 
+
+**what are strings?**
+- strings are an array of characters that are always terminated by a null '\0'
+- keep in mind that '\0' is different from NULL, which are meant for pointers
+
+three ways to create the same string:
+
+        // Method 1: Manual character assignment (tedious!)
+        char my_string[40];
+        my_string[0] = 'T';
+        my_string[1] = 'e';
+        my_string[2] = 'd';
+        my_string[3] = '\0';
+
+        // Method 2: Array initialization
+        char my_string[40] = {'T', 'e', 'd', '\0'};
+
+        // Method 3: String literal (easiest!)
+        char my_string[40] = "Ted";  // Automatically adds '\0'
+
+**pointers + string maniputation: string copying**
+
+        char +pA = strA     // pA points to the first character of strA
+        char +pB = strB     // pB points to the first character of strB
+
+        while(*pA != '\0)   // while not at the end of the string
+        {
+            *pB++ = *pA++;  // copy character and move both pointers forward
+
+        }
+
+        *pB = '\0';         // terminate 
+
+to break down the line *pB++ = *pA++
+1. pA* = retrieves the character pointed to by pA
+2. *pB = then, store that character where pB points
+3. pA++ = move pA to the next character
+4 pB++ = move pB to next position
+
+**function parameter + strings**
+- when we passa string to a function, we are passing the address of the first character
+
+        // Function prototype
+        int puts(const char *s);    // promises not to modify the string
+
+        // When you call:
+        puts(strA);                 // Passes address of strA[0]
+        puts(pA);                   // Passes same address (if pA = strA)
+
+**why use pointers for arrays**
+- the reason why we use pointers for arrays is that it only passes the address of the array. when we do not use a pointer, it copies the entire array -- which might take a lot of memory 
+
+        // Efficient - only passes address
+        void process_array(int *arr, int size);
+
+        // Call it
+        int big_array[5000];
+        process_array(big_array, 5000);  // Only address is passed!
