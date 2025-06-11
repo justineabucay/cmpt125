@@ -87,7 +87,7 @@ for example:
 
         my_array = &my_array[0]
 
-you can always change where a pointer is pointing to because it is a variable. however, we cannot change where an array points to because it is a constant, meaning that the array has a fixed memory block<b>
+you can always change where a pointer is pointing to because it is a variable. however, we cannot change where an array points to because it is a constant, meaning that the array has a fixed memory block<br>
 
 however, we can always change the content of an array, such as that below:
 
