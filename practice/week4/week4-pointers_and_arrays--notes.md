@@ -1,4 +1,6 @@
-#what is a pointer?
+# what is a pointer?
+
+
 **variables + memory**
 - variables have names + values that can be changed
 - computer assigns specific memory blocks to hold the values of the variable
@@ -55,7 +57,7 @@ for example:
         *ptr = 7;
 
 ---
-##comprehension test
+## comprehension test
 
 **question 1**
 - p is pointing to the memory address of x
