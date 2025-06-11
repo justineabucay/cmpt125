@@ -56,7 +56,6 @@ for example:
 
         *ptr = 7;
 
----
 ## comprehension test
 
 **question 1**
@@ -69,3 +68,58 @@ for example:
 
 **question 3**
 - the difference between these two printf statements is that the first one will print out the memory address. the second one will print out the actual value stored at that memory address. 
+
+---
+# pointer types and arrays
+
+**pointer arithmetic**  
+
+        int *ptr = 2;       // copies 4 bytes (size of int)
+        ptr + 1;            // adds 4 bytes, not 1 
+
+**ways to access array**
+ 
+        arr[0], arr[1];     // array notation
+        *(ptr+0), *(ptr+1); // pointer notation
+
+**array name as address**
+- array name is equivalent to the memory address of the first element of the array
+
+        my_array = &my_array[0]
+
+you can always change where a pointer is pointing to because it is a variable. however, we cannot change where an array points to because it is a constant, meaning that the array has a fixed memory block<b>
+
+however, we can always change the content of an array, such as that below:
+
+        int *ptr;
+        ptr = my_array;         // ptr is pointing to the memory address of the array
+        ptr = &my_array[0];     // same thing -- it is pointing to the memory address of the array
+        *(ptr + 2) = 99;        // change the content at the address
+        my_array[2] = 99;       // again, same thing as above -- that is, it is modifying the content of the arr
+        
+
+to know the size of an array:
+
+        int arr[5];             // initializing an array of 5 integers, where the size of an integer is 4 bytes and therefore, 5 * 4 = 20 bytes
+
+## comprehension test
+
+**question 1**
+- p + 3 will point to memory address 1012 because we know an array will be located at a memory address of at least 1000. knowing this, because int has 4 bytes of memory, and the ptr is traversing 3 positions from element, 4 * 3 = 12 + 1000 = 1012
+
+**question 2**
+- the value 30 can be access using *(ptr + 3) and arr[3] 
+
+*answer: arr[2], *(ptr +2) and ptr[2]*
+
+**question 3**
+- we cannot have an array as a pointer because both arrays are not variables and haved fixed memory blocks
+
+**question 4**
+- the differense is that the first one is point to the actual value located at that address, and the second one is actually add 2 to the value located at that address
+
+**question 5**
+- cp + 5 will point to 505. when it is double *dp, it is 540
+
+**question 6**
+- the array name is a constant, not a pointer, because a pointer is a variable that we can modify. an array, on the other hand, has a fixed memory block.
