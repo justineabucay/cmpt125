@@ -186,3 +186,182 @@ to break down the line *pB++ = *pA++
         // Call it
         int big_array[5000];
         process_array(big_array, 5000);  // Only address is passed!
+
+## comprehension test
+
+**question 1**
+- it is missing p2 = '\0' to terminate the string
+
+**question 2**
+- the first will move from c to a, and the second one will turn c to a d
+
+**question 3** 
+- the first one is better because it promises that the string will not be modified
+
+---
+
+# more on strings
+
+**array notations vs. pointer notations**
+
+        // array notation 
+        char *my_strcpy(char dest[], char source[])
+        {
+        int i = 0;
+        while (source[i] != '\0')
+        {
+                dest[i] = source[i];
+                i++;
+        }
+        dest[i] = '\0';
+        return dest;
+        }
+
+
+        // pointer notation
+        char *my_strcpy(char *dest, char *source)
+        {
+        char *p = dest;
+        while (*source != '\0')
+        {
+                *p++ = *source++;
+        }
+        *p = '\0';
+        return dest;
+        }
+
+we know that array[index] == *(array + index) are equivalent because both arrays are converted to pointers to their first element.
+
+**array indexing vs. pointer arithmetic**
+- pointer arithmetic (i.e., increment operations) are typically faster than addition
+- we can always write the following:
+
+        // instead of:
+        while(*source != '\0')
+       
+        // we can write
+        while(*source)
+
+the reason that this works is because any non-zero is true and '\0' is false<br>
+we can pass values into a function using either methods below:
+        
+        void func(int arr[])            // array notation
+        void func(int arr*)             // pointer notation
+
+both methods will receive the same address value and no copying of the array occurs
+
+**string length function**
+to count the length of a string, we can do the following methods:
+
+        // Array version
+        int my_strlen_array(char str[])
+        {
+        int len = 0;
+        while (str[len] != '\0')
+                len++;
+        return len;
+        }
+
+        // Pointer version
+        int my_strlen_pointer(char *str)
+        {
+        int len = 0;
+        while (*str++)
+                len++;
+        return len;
+        }
+
+**string concatenation**
+
+        // Array version
+        char *my_strcat(char dest[], char source[])
+        {
+        int i = 0, j = 0;
+        
+        // Find end of dest
+        while (dest[i] != '\0')
+                i++;
+        
+        // Copy source to end of dest
+        while (source[j] != '\0')
+        {
+                dest[i] = source[j];
+                i++;
+                j++;
+        }
+        dest[i] = '\0';
+        return dest;
+        }
+
+**traversing through a string**
+
+        // Array style
+        for (int i = 0; str[i] != '\0'; i++)
+        printf("%c", str[i]);
+
+        // Pointer style  
+        while (*str)
+        printf("%c", *str++);
+
+**finding a character**
+
+        // Array style
+        int find_char_array(char str[], char c)
+        {
+        for (int i = 0; str[i] != '\0'; i++)
+                if (str[i] == c)
+                return i;
+        return -1;  // Not found
+        }
+
+        // Pointer style
+        char *find_char_pointer(char *str, char c)
+        {
+        while (*str)
+        {
+                if (*str == c)
+                return str;
+                str++;
+        }
+        return NULL;  // Not found
+        }
+
+## comprehension test
+
+**question 1**
+- *(array + i), array[3]
+
+**question 2**
+- the address of first element of the array will be passed through, so that the original array will not be modified
+
+**question 3**
+- the reason that the pointer version is faster because it uses increment operator which is faster than addition operator
+
+**question 4**
+- the more efficient way to write this condition is, while(*source), because any non-zero will always be true while '\0' is zero, meaning falst
+
+**question 5**
+- no, they are not the same. but the compilier treats them the same way. 
+
+**bonus**
+
+        char *my_strcat(int arr1[], int arr2[])
+        {
+                int i = 0;
+                int j = 0; 
+
+                while(arr1[i] != '\0')  // find the end of att1
+                {
+                        i++;
+                }
+
+                while(arr2[j] == '\0')  // copy arr2 to end of arr1
+                {
+                        arr1[i] = arr2[j];
+                        i++;
+                        j++;
+                }
+
+                arr1[i] = '\0'; // null terminate
+                return arr1;
+        }
