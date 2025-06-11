@@ -66,6 +66,7 @@ int main(void)
     finding the number of elements in the array:
     https://www.w3schools.com/c/c_arrays_size.php
     */
+   
     unsigned int test1_size1 = sizeof(test1_arr1) / sizeof(test1_arr1[0]); 
     unsigned int test1_size2 = sizeof(test1_arr2) / sizeof(test1_arr2[0]);
     
