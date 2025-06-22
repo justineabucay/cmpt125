@@ -8,7 +8,7 @@ we can pass arguments through the terminal shell using the following command bel
 
         $ cp original copy
 
-however, we must declare the main() function as the following: 
+however, we must declare the main() function (i.e., testDriver.c) as the following: 
 
         int main(int argc, char* argv[]) {} // these arguments make it possible so that our rogram can accept any arguments
 
