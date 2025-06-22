@@ -21,8 +21,8 @@ we know that argument passed through the main() function will aalways be stored 
 
 we can execute the program like the following: ./ar 5 3.14<br>
 
-**review: multi-source files**
-- makefile includes the following:  
+**review: multi-source files** - makefile includes the following:  
+
 1. create a object file for main() and header file
 2. create a object file for all functions 
 3. merge the two files above and add executable 
