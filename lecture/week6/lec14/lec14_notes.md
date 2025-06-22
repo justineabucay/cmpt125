@@ -27,3 +27,5 @@ we can execute the program like the following: ./ar 5 3.14<br>
 2. create a object file for all functions 
 3. merge the two files above and add executable 
 
+IO direction: getchar() - reads the next character from stdin and returns it as an insigned char cast to an int
+
