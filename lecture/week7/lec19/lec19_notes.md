@@ -17,6 +17,7 @@ incremental development
             // Additional fields...
         } Book_t;   
 
+
         struct Book {   // you must write 'struct' every time you create a new Book
             char title[100];
             char author[50];
