@@ -28,3 +28,65 @@ incremental development
 
 how to store multiple data:
 - combine arrays w/ structs, such as the following: arrays of structs( Book_t books[ MAX_BOOKS ] )
+
+basically, you can store any data regardless of data type as long as it is created as the same object:
+
+        // functions using Call By Value Method
+        #include <stdio.h>
+
+        struct car {
+            char name[30];
+            int price;
+        };
+
+        void print_car_info(struct car c)
+        {
+            printf("Name : %s", c.name);
+            printf("\nPrice : %d\n", c.price);
+        }
+
+        int main()
+        {
+            struct car c = { "Tata", 1021 };
+            print_car_info(c);
+            return 0;
+        }
+
+you can also return the entire structure like the following example:
+
+        // C program to return a structure from a function
+        #include <stdio.h>
+
+        struct student {
+            char name[20];
+            int age;
+            float marks;
+        };
+
+        // function to return a structure
+        struct student get_student_data()
+        {
+            struct student s;
+
+            printf("Enter name: ");
+            scanf("%s", s.name);
+            printf("Enter age: ");
+            scanf("%d", &s.age);
+            printf("Enter marks: ");
+            scanf("%f", &s.marks);
+
+            return s;
+        }
+
+        int main()
+        {
+            // structure variable s1 which has been assigned the
+            // returned value of get_student_data
+            struct student s1 = get_student_data();
+            // displaying the information
+            printf("Name: %s\n", s1.name);
+            printf("Age: %d\n", s1.age);
+            printf("Marks: %.1f\n", s1.marks);
+
+            return 0;
+        }
