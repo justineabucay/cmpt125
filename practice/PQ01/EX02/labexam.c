@@ -59,5 +59,12 @@ bool compareCol1D(const int *ar, int height, int width, int col1, int col2)
 
 int* map_to_new_array(const int* ar, int n, int(*foo)(int)) {
   // implement me
-  return NULL;
+  int *result = malloc(n * sizeof(int));
+
+  if(result == NULL) perror("oh no! allocation was unsuccessful.");
+   
+  for(int i = 0; i < n; i++){
+   result[i] = (*foo)(ar[i]);
+  }
+  return result;
 }  
