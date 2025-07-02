@@ -25,7 +25,9 @@ void test_q2() {
                    {-9,10,12,-9,-2},
                    { 1, 5, 1, 1, 8}};
   bool ans2 = has_equal_columns(3,5,ar2);
-  
+
+  printf("%d %d", ans1, ans2)
+;  
   /**********test answer**********/ 
   if (ans1==false && ans2==true)
     printf("Q2 ok\n");
