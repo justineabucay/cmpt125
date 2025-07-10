@@ -64,7 +64,7 @@ int* map_to_new_array(const int* ar, int n, int(*foo)(int)) {
   if(result == NULL) perror("oh no! allocation was unsuccessful.");
    
   for(int i = 0; i < n; i++){
-   result[i] = (*foo)(ar[i]);
+   result[i] = foo(ar[i]);
   }
   return result;
 }  
