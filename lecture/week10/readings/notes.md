@@ -11,7 +11,6 @@
 - **procedural**: writing functions that operate on data
 - **OOP**: creating objects that contain <mark>both data and functions</mark>
 
-===
 
 # C++ Classes + Objects
 
@@ -79,10 +78,11 @@ you can also create multiple objects using the same data type
     }
 ```
 
-=== 
+
 
 # header and implementation files
-classes are made up of a header file and an implementation file, with the same name but different extentions. 
+classes are made up of a header file and an implementation file, with the same name but different extentions.  
+
 &nbsp; that is, header file has .h extension, and implementation file has .cpp extension. 
 
 header: class definition = class name, the name of its data members and declaration of each of its methods. 
@@ -92,4 +92,3 @@ on the other hand, implementation file: implementation of these class methods.
 both files should contain the same class documentation;
 &nbsp;that is, header comment block and description for each method
 
-=== 
