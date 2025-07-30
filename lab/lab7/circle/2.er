@@ -1,0 +1,11 @@
+c1 : 
+This circle has a radius of 10.0 and its centre is at coordinate (0,0).
+c2 : 
+This circle has a radius of 10.0 and its centre is at coordinate (0,4).
+c3 : 
+This circle has a radius of 14.1 and its centre is at coordinate (0,4).
+c4 : 
+This circle has a radius of 0.2 and its centre is at coordinate (0,11).
+c1 intersects c2
+c1 does not intersect c3
+c1 does not intersect c4
