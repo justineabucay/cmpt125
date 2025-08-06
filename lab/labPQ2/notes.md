@@ -1,5 +1,82 @@
 
 
+## List.h - Header File
+
+```cpp
+#ifndef LIST_H
+#define LIST_H
+
+#include "Node.h"
+
+class List {
+
+private:
+    /* Data Members */
+    Node * head = nullptr;           // Pointer to first node
+    Node * tail = nullptr;           // Pointer to last node  
+    unsigned int elementCount = 0;   // Current number of elements
+    
+    /* Private Helper */
+    Node* getNodeAt(unsigned int position) const;  // Get node at position
+	
+public:
+    // Constructors and Destructor
+    List();                                    // Default constructor
+    List(const List& other);                  // Copy constructor
+    ~List();                                  // Destructor
+    
+    // Assignment operator
+    List& operator=(const List& other);
+
+    // Basic Information Methods
+    unsigned int getElementCount() const;
+    unsigned int size() const;                
+    bool isEmpty() const;
+
+    // Insertion Methods
+    bool append(int newElement);
+    bool prepend(int newElement);
+    bool insertAt(unsigned int position, int newElement);
+    bool insertSorted(int newElement);        
+
+    // Removal Methods
+    bool removeAtFront();
+    bool removeAtBack();
+    bool removeAt(unsigned int position);
+    bool remove(int element);                 
+    bool removeAll(int element);              
+    void clear();                            
+
+    // Access/Retrieval Methods
+    bool getFrontElement(int* frontElement) const;
+    bool getBackElement(int* backElement) const;
+    bool getAt(unsigned int position, int* element) const;
+    int indexOf(int element) const;           
+    bool contains(int element) const;
+
+    // Utility Methods
+    void reverse();                          
+    List* copy() const;                      
+    void sort();                            
+    
+    // Statistical Methods
+    bool getMax(int* maxElement) const;
+    bool getMin(int* minElement) const;
+    
+    // List Operations
+    bool equals(const List& other) const;
+    void merge(const List& other);          
+    
+    // Display Methods
+    void printList() const;
+    void printReverse() const;              
+};
+
+#endif
+```
+
+---
+
 ## Method Explanations
 
 ### **Constructor & Destructor Methods**
@@ -306,6 +383,18 @@ void List::clear() {
     }
 }
 ```
+
+```cpp
+void List::clear() {
+    while (head != nullptr) {
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+    }
+    tail = nullptr;
+    size = 0;
+}
+```
 **What it does:** Removes all elements, making the list empty  
 **Time Complexity:** O(n)  
 **Usage:** Called by destructor and assignment operator
@@ -495,6 +584,7 @@ void List::merge(const List& other) {
 
 ---
 
+### **Private Helper Methods**
 
 #### **Get Node At: `getNodeAt(unsigned int position)`**
 ```cpp
@@ -512,8 +602,6 @@ Node* List::getNodeAt(unsigned int position) const {
 **Time Complexity:** O(n)  
 **Usage:** Used by `insertAt()`, `removeAt()`, `getAt()`, etc.  
 **Returns:** Pointer to node at position, or `nullptr` if invalid position
-
-----
 
 ## Usage Examples
 
@@ -541,4 +629,3 @@ myList.sort();                   // [3, 5]
 // Display
 myList.printList();              // "This list has 2 elements: { 3, 5 }"
 ```
-
