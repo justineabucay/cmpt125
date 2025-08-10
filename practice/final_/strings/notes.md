@@ -34,3 +34,10 @@ instead, we can modify the pointer instead, as such:
 char* str1 = "hello"; 
 str1 = "goodbye";
 ```
+
+### things i realized when doing this exercise:
+- i noticed that every time we call malloc(), we usually find how much padding we need based on the data type (i.e., integer) by using ```c sizeof()```. but then when it comes to string, we do not need to call ```c sizeof()``` at all, because ```c sizeof(char)``` is equal to 1 byte. therefore, we can leave it out, as such:
+
+```c
+str3 = malloc(length + 1);
+```
