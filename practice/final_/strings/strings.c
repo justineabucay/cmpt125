@@ -87,3 +87,30 @@ char *approachTwo(char *str, char *word)
 
     return str;
 }
+
+int myStrLen(char *str){
+    char* original = str; 
+    int length = 0;
+    while(*str){
+        length++;
+        str++;
+    }
+    str = original;
+    return length; 
+}
+
+void myStrCopy(char *dest, char *src){
+    
+    while(*src){
+        *dest = *src;
+        src++;
+        dest++;
+    }
+    dest = '\0';
+}
+
+int myStrCmp(char *str1, char *str2){
+    if(str1 == str2) return 0; 
+
+    return -1;
+}
