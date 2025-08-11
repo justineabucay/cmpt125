@@ -30,5 +30,44 @@ int main (void){
     // part 2: number to strong conversion
     // exercise 2.1
 
+    printf("\n\n");
+    char *result1;
+    result1 = int2str(0);
+    printf("int2str(0) = '%s'\n", result1); // Should be "0"
+    free(result1);
+
+    result1 = int2str(5);
+    printf("int2str(5) = '%s'\n", result1); // Should be "5"
+    free(result1);
+
+    result1 = int2str(123);
+    printf("int2str(123) = '%s'\n", result1); // Should be "123"
+    free(result1);
+
+    result1 = int2str(999);
+    printf("int2str(999) = '%s'\n", result1); // Should be "999"
+    free(result1);
+
+    // exercise 2.2
+    // integer -> binary
+    printf("\n\n");
+
+    char *result2; 
+    result2 = int2bin(0); 
+    printf("int2str(0) = '%s'\n", result2); 
+    free(result2);
+
+    result2 = int2bin(5);
+    printf("int2str(5) = '%s'\n", result2);
+    free(result2);
+
+    result2 = int2bin(123);
+    printf("int2str(123) = '%s'\n", result2);
+    free(result2);
+
+    result2 = int2bin(999);
+    printf("int2str(999) = '%s'\n", result2);
+    free(result2);
+
     return 0; 
 }

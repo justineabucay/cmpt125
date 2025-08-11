@@ -114,3 +114,55 @@ int myStrCmp(char *str1, char *str2){
 
     return -1;
 }
+
+char* int2str(unsigned int n){
+    int length = countDigits(n, 10); 
+
+    char* str = malloc(length + 1); 
+    str[length] = '\0';
+
+    for(int i = 0; i < length; i++){
+        str[i] = (n % 10) + '0';
+        n /= 10; 
+    }
+    
+    return str; 
+}
+
+char* int2bin(unsigned int n){
+    int length = countDigits(n, 2); 
+
+    char* str = malloc(length + 1); 
+    str[length] = '\n'; 
+
+    for(int i = 0; i < length; i++){
+        str[i] = (n % 2) + '0'; 
+        n /= 2; 
+    }
+
+    return str;
+}
+
+char* int2hex(unsigned int n){
+    
+}
+
+int countDigits(unsigned int n, unsigned int bit){
+    int length = 0;
+    if (n == 0)
+    {
+        length = 1;
+    }
+    else
+    {
+        int temp = n;
+        while (temp > 0)
+        {
+            length++;
+            temp = temp / bit;
+        }
+    }
+
+    return length; 
+}
+
