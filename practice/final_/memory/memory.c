@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "memory.h"
 
 // part 1: dynamic memory allocation
@@ -33,6 +34,17 @@ int *resize_array(int *old_array, int old_size, int new_size){
     free(old_array);
     old_array = NULL;
     return new_array;
+}
+char* create_message(){
+    char* msg = malloc(50); 
+    strcpy(msg, "hello");
+    free(msg); 
+
+    msg = malloc(100); 
+    // strcpy() allows you to copy a string to another, which returns a pointer to dest string
+    strcpy(msg, "hello world"); 
+
+    return msg; 
 }
 
 void printAll(int *arr, int size){
