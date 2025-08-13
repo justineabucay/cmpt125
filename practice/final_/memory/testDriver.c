@@ -12,9 +12,10 @@ int main(void){
     arr = resize_array(arr, size, new_size);
     printAll(arr, new_size);
     printf("\n\n");
-    
+
     // exercise 2.1: find + fix memory leaks
     printf("%s\n", create_message());
+
 
     free(arr);
     return 0;

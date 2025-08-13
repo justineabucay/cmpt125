@@ -47,6 +47,18 @@ char* create_message(){
     return msg; 
 }
 
+int *create_and_modify_array(int start_value)
+{
+    int *arr = malloc(4 * sizeof(int));
+
+    for (int i = 0; i < 4; i++)
+    {
+        arr[i] = start_value + i * i; // Like your midterm: 0, 1, 4, 9
+    }
+
+    return arr;
+}
+
 void printAll(int *arr, int size){
     printf("array: [");
     for(unsigned int i = 0; i < size; i++){
