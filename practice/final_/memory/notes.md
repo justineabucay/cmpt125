@@ -141,6 +141,21 @@ void memory_management_test() {
 }
 ```
 
-the problem that i have found in the code block above is that we lose access to the memory block of the array that we created, which our variable pointer, a2, was pointing before reassigning it to point to the same memory as a1. that means, when we print out the results, the first array will appear twice on the screen. also, when we free the pointers, a1 and a2, there will be a double-free error because -- as i said before -- that a2 is now point at the same memory as a1, which we have already freed.  
+the problem that i have found in the code block above is that we lose access to the memory block of the array that we created, which our variable pointer, a2, was pointing before reassigning it to point to the same memory as a1. that means, when we print out the results, the first array will appear twice on the screen. also, when we free the pointers, a1 and a2, there will be a double-free error because -- as i said before -- that a2 is now pointing to the same memory as a1, which we have already freed.  
 
 **our solution** we need to free a2 before reassigning it to point to a1 in order to avoid a memory leak. at the end, we can either free a1 or a2 (since they both point to the same memory).
+
+## exercise 3.2 ##
+```c
+// Write these functions with proper const correctness
+
+// Function that finds max value (shouldn't modify array)
+int find_max(const int* arr, int size);
+
+// Function that searches for a value (shouldn't modify array or search value)  
+int search(const int* arr, int size, int target);
+
+// Function that copies a string (source shouldn't be modified)
+char* string_copy(char* dest, const char* src);
+
+```

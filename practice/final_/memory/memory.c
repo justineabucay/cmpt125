@@ -59,7 +59,8 @@ int *create_and_modify_array(int start_value)
     return arr;
 }
 
-void printAll(int *arr, int size){
+void printAll(int *arr, int size)
+{
     printf("array: [");
     for(unsigned int i = 0; i < size; i++){
         printf("%d ", arr[i]);

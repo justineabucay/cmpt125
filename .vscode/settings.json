@@ -40,6 +40,9 @@
         "ratio": "cpp",
         "sstream": "cpp",
         "variant": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "pointernotation.h": "c",
+        "stdlib.h": "c",
+        "datastructure.h": "c"
     }
 }

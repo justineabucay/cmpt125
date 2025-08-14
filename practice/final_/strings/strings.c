@@ -106,7 +106,7 @@ void myStrCopy(char *dest, char *src){
         src++;
         dest++;
     }
-    dest = '\0';
+    dest[0] = '\0';
 }
 
 int myStrCmp(char *str1, char *str2){
@@ -116,35 +116,198 @@ int myStrCmp(char *str1, char *str2){
 }
 
 char* int2str(unsigned int n){
-    int length = countDigits(n, 10); 
+    unsigned int bit = 10;
+    int length = countDigits(n, bit); 
 
     char* str = malloc(length + 1); 
     str[length] = '\0';
 
-    for(int i = 0; i < length; i++){
-        str[i] = (n % 10) + '0';
-        n /= 10; 
+    for(int i = length - 1; i >= 0; i--){
+        str[i] = (n % bit) + '0';
+        n /= bit; 
     }
     
     return str; 
 }
 
 char* int2bin(unsigned int n){
-    int length = countDigits(n, 2); 
-
+    int bit = 2;
+    int length = countDigits(n, bit); 
+    
     char* str = malloc(length + 1); 
-    str[length] = '\n'; 
+    str[length] = '\0'; 
 
     for(int i = 0; i < length; i++){
-        str[i] = (n % 2) + '0'; 
-        n /= 2; 
+        str[i] = (n % bit) + '0'; 
+        n /= bit; 
+    }
+
+    return str;
+} 
+
+char* int2hex(unsigned int n){
+    int base = 16;
+    int length = countDigits(n, base);
+
+    char *str = malloc(length + 1);
+    str[length] = '\0';
+
+    for (int i = length - 1; i >= 0; i--)
+    {
+        int digit = (n % base);
+        /* review the line below */
+        if(digit<10) str[i] = digit + '0';  // 0-9 -> '0' - '9'
+        else str[i] = (digit - 10) + 'A'; // 10-15 become A-F
+        n /= base;
     }
 
     return str;
 }
 
-char* int2hex(unsigned int n){
+int str2int(char *str){
+    int num = 0;
+
+    for(int i = 0; str[i] != '\0'; i++){
+        /* review the line below */
+        num = num * 10 + str[i] - '0';
+    }
+    return num;
+}
+
+char* buildGreeting(char *name){
+    char *word;
+    char *message = NULL;
+    word = "Hello, "; 
+    int length = strlen(word) + strlen(name) + 2;
+
+    message = malloc(length);
+    if(!message) return NULL;
+
+    strcpy(message, word);
+    strcat(message, name);
+    strcat(message, "!");
+    return message; 
+}
+
+char* formatPerson(char *name, int age, char *city){
+    char* age_str = int2str(age); 
+
+    int total_length = strlen(name) + strlen(age_str) + strlen(city);
+    char* result = malloc(total_length + 1);
+    result[0] = '\0';
+
+    strcat(result, "name: ");
+    strcat(result, name); 
+    strcat(result, ", age: ");
+    strcat(result, age_str);
+    strcat(result, ", city: ");
+    strcat(result, city);
+
+    free(age_str);
+    return result;
+}
+
+int countWords(char *str){
+    int words = 0; 
+    int in_word = 0; 
     
+    while(*str){
+        if(*str == ' '){
+            in_word = 0;        // set in_word to 0 because we are currently on a space
+        }
+        else
+            if(in_word == 0){
+                words++;        // start of a new word
+                in_word = 1;    // we are inside a word
+            }
+        str++;
+    }
+
+    return words;
+}
+
+char *longestWord(char *str)
+{
+    int maxLen = 0;
+    int currLen = 0;
+    int maxStart = 0;
+    int currStart = 0;
+    int i = 0;
+
+    while (str[i])
+    {
+        if (str[i] == ' ')
+        {
+            if (currLen > maxLen)
+            {
+                maxLen = currLen;
+                maxStart = currStart;
+            }
+            currLen = 0;
+        }
+        else
+        {
+            if (currLen == 0)
+                currStart = i;
+            currLen++;
+        }
+        i++;
+    }
+
+    if (currLen > maxLen)
+    {
+        maxLen = currLen;
+        maxStart = currStart;
+    }
+
+    char *longest = malloc(maxLen + 1);
+    if (longest == NULL)
+        return NULL;
+
+    memcpy(longest, &str[maxStart], maxLen);
+    longest[maxLen] = '\0';
+
+    return longest;
+
+}
+
+int is_numeric(char *str){
+
+    for(unsigned int i = 0; str[i] != '\0'; i++){
+        if(str[i] >= 'A'){
+            printf("%c\n", str[i]);
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
+int is_valid_identifier(char *str)
+{
+    // Check if string is NULL or empty
+    if (str == NULL || str[0] == '\0')
+    {
+        return 0;
+    }
+
+    // First character must be letter or underscore (not digit)
+    if (!((str[0] >= 'a' && str[0] <= 'z') || (str[0] >= 'A' && str[0] <= 'Z') || (str[0] == '_')))
+    {
+        return 0;
+    }
+
+    // Check remaining characters
+    for (int i = 1; str[i] != '\0'; i++)
+    {
+        char c = str[i]; // Just get the character, not a pointer to it
+        if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || (c == '_')))
+        {
+            return 0; // Invalid character found
+        }
+    }
+
+    return 1; // All characters are valid
 }
 
 int countDigits(unsigned int n, unsigned int bit){
@@ -165,4 +328,6 @@ int countDigits(unsigned int n, unsigned int bit){
 
     return length; 
 }
+
+
 

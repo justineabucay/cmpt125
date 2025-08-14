@@ -5,13 +5,18 @@
 int *create_int_array(int size);
 
 // resize an existing array (like realloc but manual)
-int* resize_array(int* old_array, int old_size, int new_size);
+int *resize_array(int *old_array, int old_size, int new_size);
 
-// part 2: memory leak detection + prevention 
+// part 2: memory leak detection + prevention
 // exercise 2.1: find + fix memory leaks
-char* create_message(); 
+char *create_message();
 
+// part 4: file i/o + memory
+// exercise 4.1: reading arrays from files
 
+int *read_int_array(const char *filename, int *count);
+
+int write_int_array(const char *filename, int *arr, int count);
 
 void printAll(int *arr, int size);
 

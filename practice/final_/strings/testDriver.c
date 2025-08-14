@@ -53,7 +53,7 @@ int main (void){
     printf("\n\n");
 
     char *result2; 
-    result2 = int2bin(0); 
+    result2 = int2bin(8); 
     printf("int2str(0) = '%s'\n", result2); 
     free(result2);
 
@@ -61,13 +61,55 @@ int main (void){
     printf("int2str(5) = '%s'\n", result2);
     free(result2);
 
-    result2 = int2bin(123);
-    printf("int2str(123) = '%s'\n", result2);
-    free(result2);
+    // integer -> hexadecimal
+    printf("\n\n");
 
-    result2 = int2bin(999);
-    printf("int2str(999) = '%s'\n", result2);
-    free(result2);
+    char *result3;
+    result3 = int2hex(235);
+    printf("int2hex(255) = '%s'\n", result3);
+    free(result3);
 
-    return 0; 
+    result3 = int2hex(16);
+    printf("int2hex(16) = '%s'\n", result3);
+    free(result3);
+
+    // reverse: string to number
+    printf("\n\n");
+    int result4 = str2int("123");
+    printf("str2int = %d\n", result4);
+   
+    // part 3: string building + c ancatenation
+    // exercise 3.1
+    char *greeting = buildGreeting("World");
+    printf("%s\n", greeting);
+    free(greeting);
+
+    // exercise 3.3
+    printf("%s\n", formatPerson("Alice", 25, "Vancouver"));
+
+    // part 4
+    // exercise 4.1
+    /* review this function */
+    printf("the number of words found in this string: %d\n", countWords("hello ny name"));
+
+    /* review this function */
+    printf("the longest word from this string ('hello my name'): %s\n", longestWord("hello my name"));
+
+    printf("\n\n");
+    printf("checking if this string is numeric:\n"); 
+    int result5 = is_numeric("15255"); 
+    if(result5 == 0)
+        printf("this string is numeric");
+    else
+        printf("this string is not numeric");
+
+    printf("\n\n");
+    printf("checking if this string is a valid identifier:\n");
+    int result6 = is_valid_identifier("valid");
+    if(result6 == 1)
+        printf("this string is a valid identifier");
+    else
+        printf("this string is not a valid identifier");
+
+    return 0;
 }
